@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hora do Destravamento | Assistência Técnica PlayStation</title>
+  <meta name="description" content="Landing page profissional para assistência técnica especializada em conserto, diagnóstico, manutenção e recuperação de consoles PlayStation." />
+  <meta name="theme-color" content="#05070d" />
+  <meta property="og:title" content="Hora do Destravamento | Leiticio Diniz" />
+  <meta property="og:description" content="Conserto, diagnóstico e recuperação técnica de consoles PlayStation com bancada profissional." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/oficina_de_reparo_de_games.png" />
+  <style>
+    :root {
+      --bg: #05070d;
+      --bg-soft: #0c101a;
+      --panel: rgba(14, 18, 29, 0.78);
+      --panel-strong: rgba(12, 16, 26, 0.94);
+      --text: #f7f8fb;
+      --muted: #aab0c0;
+      --orange: #ff6a00;
+      --orange-2: #ff8a2b;
+      --blue: #1b74ff;
+      --blue-soft: rgba(27, 116, 255, 0.17);
+      --line: rgba(255, 255, 255, 0.12);
+      --success: #44d28a;
+      --danger: #ff4d5e;
+      --shadow: 0 22px 80px rgba(0, 0, 0, 0.42);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 78% 12%, rgba(255, 106, 0, 0.14), transparent 28%),
+        radial-gradient(circle at 16% 22%, rgba(27, 116, 255, 0.22), transparent 30%),
+        linear-gradient(180deg, #04060b 0%, #080b13 42%, #04060b 100%);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 38px 38px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 90%);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(5, 7, 13, 0.74);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--orange), #ffb000);
+      color: #120600;
+      box-shadow: 0 12px 34px rgba(255, 106, 0, 0.28);
+      font-weight: 950;
+    }
+
+    .brand span:last-child { font-size: 1.02rem; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 650;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      border: 1px solid rgba(255, 106, 0, 0.5);
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 106, 0, 0.1);
+    }
+
+    .mobile-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-weight: 800;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 78px 0 60px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(27, 116, 255, 0.32);
+      color: #d8e6ff;
+      background: rgba(27, 116, 255, 0.12);
+      font-size: 0.82rem;
+      font-weight: 780;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 0 8px rgba(68, 210, 138, 0.12);
+    }
+
+    h1 {
+      margin: 22px 0 18px;
+      max-width: 760px;
+      font-size: clamp(2.65rem, 6vw, 5.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.075em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #fff 0%, #f4f6fb 35%, #ff8a2b 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      max-width: 630px;
+      font-size: 1.12rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 30px 0 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-weight: 850;
+      border: 1px solid transparent;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      cursor: pointer;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button-primary {
+      color: #160900;
+      background: linear-gradient(135deg, var(--orange), #ffb000);
+      box-shadow: 0 18px 42px rgba(255, 106, 0, 0.28);
+    }
+
+    .button-secondary {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 660px;
+    }
+
+    .trust-card {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .trust-card strong {
+      display: block;
+      font-size: 1.4rem;
+      letter-spacing: -0.04em;
+    }
+
+    .trust-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .hero-card {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+      overflow: hidden;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0) 42%, rgba(0,0,0,0.7) 100%),
+        radial-gradient(circle at 80% 18%, rgba(255,106,0,.25), transparent 32%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 430px;
+      object-fit: cover;
+      transform: scale(1.02);
+    }
+
+    .hero-badge {
+      position: absolute;
+      z-index: 3;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(5, 7, 13, 0.74);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-badge strong { display: block; }
+    .hero-badge span { color: var(--muted); font-size: 0.9rem; }
+
+    .status-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #d9ffe9;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 76px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      color: var(--orange-2);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4.4vw, 3.45rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .section-head p {
+      max-width: 460px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(255, 106, 0, 0.22), rgba(27, 116, 255, 0.12));
+      border: 1px solid rgba(255,255,255,.1);
+      font-weight: 950;
+      color: #ffd2a8;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      letter-spacing: -0.025em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .feature-panel {
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      padding: 30px;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255, 106, 0, 0.18), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      min-height: 100%;
+    }
+
+    .feature-panel p { color: var(--muted); }
+
+    .skills-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: start;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(0,0,0,.16);
+    }
+
+    .check {
+      min-width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(68, 210, 138, 0.14);
+      color: var(--success);
+      font-weight: 950;
+      font-size: .78rem;
+    }
+
+    .skill-item strong { display: block; }
+    .skill-item span { color: var(--muted); font-size: .92rem; }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      background: rgba(255,255,255,.04);
+      overflow: hidden;
+      counter-increment: step;
+    }
+
+    .step::before {
+      content: "0" counter(step);
+      display: inline-block;
+      color: rgba(255,255,255,.18);
+      font-size: 3.5rem;
+      line-height: .8;
+      font-weight: 950;
+      letter-spacing: -0.08em;
+      margin-bottom: 20px;
+    }
+
+    .step h3 { margin: 0 0 10px; }
+    .step p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .price-card {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 26px;
+      background: rgba(255,255,255,.04);
+      position: relative;
+    }
+
+    .price-card.featured {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,106,0,.2), transparent 42%),
+        rgba(255,255,255,.065);
+      border-color: rgba(255, 106, 0, 0.35);
+      box-shadow: 0 24px 70px rgba(255, 106, 0, 0.12);
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,106,0,.12);
+      color: #ffd3ae;
+      font-size: .78rem;
+      font-weight: 850;
+      margin-bottom: 16px;
+    }
+
+    .price-card h3 { margin: 0 0 8px; }
+    .price-card .from { color: var(--muted); margin: 0 0 18px; }
+    .price-card ul { padding: 0; margin: 0; list-style: none; display: grid; gap: 12px; color: var(--muted); }
+    .price-card li::before { content: "✓"; color: var(--success); font-weight: 950; margin-right: 8px; }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 30px;
+      background: var(--panel-strong);
+      box-shadow: var(--shadow);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      color: #dbe0ed;
+      font-weight: 750;
+      font-size: .94rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 15px;
+      color: var(--text);
+      background: rgba(255,255,255,.055);
+      outline: none;
+      font: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus { border-color: rgba(255,106,0,.55); }
+    textarea { resize: vertical; min-height: 118px; }
+
+    .note {
+      color: var(--muted);
+      font-size: .9rem;
+      margin: 14px 0 0;
+    }
+
+    .disclaimer {
+      border: 1px solid rgba(255,255,255,.12);
+      border-left: 4px solid var(--orange);
+      border-radius: 20px;
+      padding: 20px;
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .split, .contact-wrap { grid-template-columns: 1fr; }
+      .services-grid, .pricing { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-card { order: -1; }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .mobile-toggle { display: inline-flex; }
+      .nav-links {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        top: 82px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(5,7,13,.96);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 16px;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 8px 4px; }
+      .hero { padding-top: 34px; }
+      .trust-row, .services-grid, .pricing, .process { grid-template-columns: 1fr; }
+      .hero-card img { min-height: 300px; }
+      .hero-badge { position: static; border-radius: 0; border-left: 0; border-right: 0; border-bottom: 0; }
+      section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Hora do Destravamento">
+        <span class="brand-mark">HD</span>
+        <span>Hora do Destravamento</span>
+      </a>
+      <button class="mobile-toggle" type="button" aria-label="Abrir menu" data-menu>Menu</button>
+      <nav class="nav-links" data-nav>
+        <a href="#servicos">Serviços</a>
+        <a href="#skills">Skills</a>
+        <a href="#processo">Processo</a>
+        <a href="#planos">Planos</a>
+        <a class="nav-cta" href="#contato">Agendar diagnóstico</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><span class="pulse"></span> Assistência técnica gamer</span>
+          <h1 id="hero-title"><span class="gradient-text">Conserto e destravamento técnico</span> para PlayStation.</h1>
+          <p class="hero-copy">
+            Diagnóstico profissional, reparo eletrônico e recuperação de consoles travados com bancada antiestática, ferramentas de precisão e comunicação clara em cada etapa.
+          </p>
+          <div class="cta-row">
+            <a class="button button-primary" href="#contato">Solicitar orçamento</a>
+            <a class="button button-secondary" href="#servicos">Ver serviços</a>
+          </div>
+          <div class="trust-row" aria-label="Indicadores de confiança">
+            <div class="trust-card"><strong>PS4 / PS5</strong><span>Atendimento focado em consoles Sony</span></div>
+            <div class="trust-card"><strong>24h</strong><span>Triagem inicial para orçamento</span></div>
+            <div class="trust-card"><strong>Laudo</strong><span>Diagnóstico técnico documentado</span></div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Arte principal da campanha">
+          <img src="assets/oficina_de_reparo_de_games.png" alt="Arte promocional Hora do Destravamento com bancada de reparo de PlayStation" />
+          <div class="hero-badge">
+            <div>
+              <strong>A história de Leiticio Diniz</strong>
+              <span>Especialista em reparo, manutenção e recuperação técnica.</span>
+            </div>
+            <span class="status-dot"><span class="pulse"></span>Agenda aberta</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="servicos" aria-labelledby="servicos-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Serviços</div>
+            <h2 id="servicos-title">Tudo para tirar o console do travamento.</h2>
+          </div>
+          <p>Uma página pensada para transmitir especialização, confiança e clareza para quem precisa recuperar ou consertar um PlayStation.</p>
+        </div>
+        <div class="services-grid">
+          <article class="card">
+            <div class="icon">01</div>
+            <h3>Diagnóstico eletrônico</h3>
+            <p>Inspeção de placa, fonte, HDMI, USB, aquecimento, curto e falhas intermitentes antes de qualquer intervenção.</p>
+          </article>
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>Recuperação de sistema</h3>
+            <p>Correção de loop de atualização, modo seguro, travamentos, erro de inicialização e falhas de armazenamento.</p>
+          </article>
+          <article class="card">
+            <div class="icon">03</div>
+            <h3>Manutenção preventiva</h3>
+            <p>Limpeza interna, troca de pasta térmica, revisão de ventilação e testes de temperatura para prolongar a vida útil.</p>
+          </article>
+          <article class="card">
+            <div class="icon">04</div>
+            <h3>Reparo de HDMI e conectores</h3>
+            <p>Substituição e ressolda de portas danificadas com ferramentas de precisão e validação em bancada.</p>
+          </article>
+          <article class="card">
+            <div class="icon">05</div>
+            <h3>Controles e periféricos</h3>
+            <p>Correção de drift, botões, gatilhos, bateria, conectores e falhas de comunicação em controles compatíveis.</p>
+          </article>
+          <article class="card">
+            <div class="icon">06</div>
+            <h3>Destravamento técnico</h3>
+            <p>Atuação focada em recuperação de console travado, acesso ao sistema, configuração e estabilização dentro dos limites legais.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="container split">
+        <div class="feature-panel">
+          <div class="section-kicker">Skills relevantes</div>
+          <h2 id="skills-title">Competências que vendem confiança.</h2>
+          <p>
+            Para o tema de conserto e destravamento de PlayStation, a landing page precisa destacar domínio técnico real, processo seguro e comunicação simples para o cliente final.
+          </p>
+          <div class="skills-list">
+            <div class="skill-item"><span class="check">✓</span><div><strong>Microssolda e retrabalho SMD</strong><span>Uso de estação de ar quente, ferro de solda fino e fluxo apropriado para componentes sensíveis.</span></div></div>
+            <div class="skill-item"><span class="check">✓</span><div><strong>Diagnóstico com multímetro e bancada</strong><span>Busca estruturada por curto, trilhas rompidas, conectores danificados e falhas de alimentação.</span></div></div>
+            <div class="skill-item"><span class="check">✓</span><div><strong>Recuperação de software e firmware</strong><span>Tratamento de erros de inicialização, atualização, armazenamento e modo seguro sem prometer práticas irregulares.</span></div></div>
+          </div>
+        </div>
+        <div class="feature-panel">
+          <div class="section-kicker">Diferencial</div>
+          <h2>Do problema ao laudo, sem achismo.</h2>
+          <p>O posicionamento da página evita parecer “gambiarra” ou serviço informal. A proposta é comunicar método, rastreabilidade e segurança.</p>
+          <div class="skills-list">
+            <div class="skill-item"><span class="check">✓</span><div><strong>Antes de mexer, diagnosticar</strong><span>O cliente entende o provável defeito, o risco e o custo antes da execução.</span></div></div>
+            <div class="skill-item"><span class="check">✓</span><div><strong>Registro do reparo</strong><span>Fotos, vídeos ou checklist ajudam a justificar o serviço e aumentar a percepção de valor.</span></div></div>
+            <div class="skill-item"><span class="check">✓</span><div><strong>Teste final documentado</strong><span>Console validado com imagem, rede, controle, leitura de armazenamento, temperatura e estabilidade.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="processo" aria-labelledby="processo-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Processo</div>
+            <h2 id="processo-title">Atendimento com começo, meio e fim.</h2>
+          </div>
+          <p>Uma jornada clara reduz dúvidas, aumenta a confiança e melhora a conversão da landing page.</p>
+        </div>
+        <div class="process">
+          <article class="step"><h3>Triagem</h3><p>Cliente informa modelo, sintomas, histórico e fotos/vídeos do problema.</p></article>
+          <article class="step"><h3>Diagnóstico</h3><p>Console é avaliado em bancada com checklist técnico e identificação do defeito.</p></article>
+          <article class="step"><h3>Orçamento</h3><p>Serviço, prazo, riscos e peças são apresentados antes da aprovação.</p></article>
+          <article class="step"><h3>Entrega</h3><p>Reparo executado, testes finais realizados e orientações de uso entregues ao cliente.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="planos" aria-labelledby="planos-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Ofertas</div>
+            <h2 id="planos-title">Pacotes simples para vender melhor.</h2>
+          </div>
+          <p>Valores podem ser configurados depois. A estrutura abaixo ajuda a transformar interesse em orçamento.</p>
+        </div>
+        <div class="pricing">
+          <article class="price-card">
+            <span class="tag">Entrada</span>
+            <h3>Diagnóstico</h3>
+            <p class="from">Para entender o defeito antes do reparo.</p>
+            <ul>
+              <li>Triagem técnica</li>
+              <li>Teste de fonte e conectores</li>
+              <li>Laudo resumido</li>
+            </ul>
+          </article>
+          <article class="price-card featured">
+            <span class="tag">Mais procurado</span>
+            <h3>Reparo completo</h3>
+            <p class="from">Para console com defeito identificado.</p>
+            <ul>
+              <li>Execução do serviço aprovado</li>
+              <li>Peças sob orçamento</li>
+              <li>Teste final de estabilidade</li>
+            </ul>
+          </article>
+          <article class="price-card">
+            <span class="tag">Preventivo</span>
+            <h3>Manutenção premium</h3>
+            <p class="from">Para reduzir aquecimento e ruído.</p>
+            <ul>
+              <li>Limpeza interna</li>
+              <li>Pasta térmica</li>
+              <li>Checklist de temperatura</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" aria-labelledby="contato-title">
+      <div class="container contact-wrap">
+        <div>
+          <div class="section-kicker">Contato</div>
+          <h2 id="contato-title">Agende o diagnóstico do seu PlayStation.</h2>
+          <p class="hero-copy">Substitua os campos de contato pelos dados reais do negócio. A estrutura já está pronta para WhatsApp, formulário ou integração futura.</p>
+          <div class="cta-row">
+            <a class="button button-primary" href="https://wa.me/5500000000000?text=Olá,%20quero%20um%20diagnóstico%20para%20meu%20PlayStation" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+            <a class="button button-secondary" href="mailto:contato@exemplo.com">Enviar e-mail</a>
+          </div>
+          <div class="disclaimer">
+            <strong>Nota de posicionamento:</strong> use “destravamento” como recuperação técnica, estabilização e resolução de console travado. Evite prometer violação de DRM, pirataria, burlar proteção ou práticas que possam infringir direitos autorais ou termos de uso.
+          </div>
+        </div>
+        <div class="contact-card">
+          <form id="leadForm">
+            <label>Nome
+              <input name="nome" placeholder="Seu nome" required />
+            </label>
+            <label>Modelo do console
+              <select name="modelo" required>
+                <option value="">Selecione</option>
+                <option>PlayStation 4</option>
+                <option>PlayStation 4 Pro</option>
+                <option>PlayStation 5</option>
+                <option>Controle / periférico</option>
+              </select>
+            </label>
+            <label>Principal problema
+              <textarea name="problema" placeholder="Ex.: não liga, sem imagem, erro de atualização, aquecendo, travando..." required></textarea>
+            </label>
+            <button class="button button-primary" type="submit">Gerar mensagem de orçamento</button>
+            <p class="note" id="formNote">Ao enviar, a página monta uma mensagem pronta para copiar e enviar ao atendimento.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© <span id="year"></span> Hora do Destravamento. Landing page demonstrativa.</span>
+      <span>PlayStation é marca de seus respectivos proprietários. Serviço independente.</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('[data-nav]');
+    const menu = document.querySelector('[data-menu]');
+    if (menu && nav) {
+      menu.addEventListener('click', () => nav.classList.toggle('open'));
+      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => nav.classList.remove('open')));
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('leadForm');
+    const note = document.getElementById('formNote');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const message = `Olá, quero um orçamento para meu ${data.get('modelo')}. Meu nome é ${data.get('nome')}. Problema relatado: ${data.get('problema')}`;
+      navigator.clipboard?.writeText(message).then(() => {
+        note.textContent = 'Mensagem copiada. Agora é só colar no WhatsApp ou e-mail de atendimento.';
+      }).catch(() => {
+        note.textContent = message;
+      });
+    });
+  </script>
+</body>
+</html>
